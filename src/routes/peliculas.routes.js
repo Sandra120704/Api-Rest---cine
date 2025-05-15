@@ -1,14 +1,17 @@
-import {Router} from "express"
-import { createPeliculas, deletePeliculas, getPeliculas, getPeliculasByid, updatePeliculas } from "../controllers/peliculas.controller.js"
+import { Router } from "express"
+import { createPeliculas, deletePeliculas, getPeliculaById, getPeliculas, updatePeliculas } from "../controllers/peliculas.controller.js"
 
 const router = Router()
 
-//verbos..
-//APIREST = verbos 
-router.get('/peliculas',  getPeliculas)
-router.get('/peliculas/:id', getPeliculasByid)
-router.post('/peliculas',  createPeliculas)
-router.put('/peliculas',  updatePeliculas)  
-router.delete('/peliculas', deletePeliculas)  
+//Verbos...
+//APIREST = 
+router.get('/peliculas', getPeliculas )
+router.get('/peliculas/:id', getPeliculaById )
+
+router.post('/peliculas', createPeliculas )
+
+router.put('/peliculas/:id', updatePeliculas )
+
+router.delete('/peliculas/:id', deletePeliculas )
 
 export default router
