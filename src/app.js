@@ -1,16 +1,16 @@
-import express from 'express';
-import peliculasRouter from './routes/peliculas.routes.js'
-//import { createPeliculas, getPeliculas, getPeliculasByid, updatePeliculas, deletePeliculas } from './controllers/peliculas.controller.js';
+//Ecmascript Modules
+import express from 'express'
+import peliculasRoutes from './routes/peliculas.routes.js'
 
-const app = express();
+const app = express()
 
-// Middleware to parse JSON
-app.use(express.json());
-app.use('/api/', peliculasRouter)
+app.use(express.json())
+app.use('/api/', peliculasRoutes) //Rutas películas
 
+//Control sobre rutas inexistentes
 app.use((req, res, next) => {
   res.status(404).json({
-    message:'No existe el endpoint'
+    message: 'No existe el endpoint'
   })
 })
 
